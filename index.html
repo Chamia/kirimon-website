@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kirimon Impact Advisory</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg: #0A0A0A;
+    --surface: #111111;
+    --surface2: #181818;
+    --off-white: #F5F2ED;
+    --muted: #888580;
+    --green: #1C4A3E;
+    --green-light: #2A6B5C;
+    --green-accent: #3D9B82;
+    --border: rgba(245,242,237,0.08);
+    --border-hover: rgba(245,242,237,0.15);
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--off-white);
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 300;
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 3rem;
+    background: rgba(10,10,10,0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .nav-logo {
+    font-family: 'Fraunces', serif;
+    font-size: 1.1rem;
+    font-weight: 300;
+    letter-spacing: 0.02em;
+    color: var(--off-white);
+    text-decoration: none;
+  }
+
+  .nav-logo span {
+    display: block;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.62rem;
+    font-weight: 300;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-top: 2px;
+  }
+
+  .nav-cta {
+    font-size: 0.78rem;
+    font-weight: 400;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--off-white);
+    text-decoration: none;
+    border: 1px solid var(--border-hover);
+    padding: 0.55rem 1.4rem;
+    border-radius: 2px;
+    transition: all 0.25s ease;
+  }
+
+  .nav-cta:hover {
+    background: var(--green);
+    border-color: var(--green);
+  }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 0 3rem 6rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 60% 50% at 80% 20%, rgba(28,74,62,0.28) 0%, transparent 70%),
+      radial-gradient(ellipse 40% 60% at 10% 80%, rgba(28,74,62,0.14) 0%, transparent 60%);
+    pointer-events: none;
+  }
+
+  .hero-eyebrow {
+    font-size: 0.7rem;
+    font-weight: 400;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--green-accent);
+    margin-bottom: 2rem;
+    position: relative;
+  }
+
+  .hero h1 {
+    font-family: 'Fraunces', serif;
+    font-size: clamp(3rem, 7vw, 6.5rem);
+    font-weight: 300;
+    line-height: 1.0;
+    letter-spacing: -0.02em;
+    color: var(--off-white);
+    max-width: 820px;
+    position: relative;
+  }
+
+  .hero h1 em {
+    font-style: italic;
+    color: var(--green-accent);
+  }
+
+  .hero-sub {
+    margin-top: 2.5rem;
+    font-size: 1.05rem;
+    font-weight: 300;
+    color: var(--muted);
+    max-width: 520px;
+    line-height: 1.75;
+    position: relative;
+  }
+
+  .hero-sub strong {
+    color: var(--off-white);
+    font-weight: 400;
+  }
+
+  .hero-scroll {
+    position: absolute;
+    bottom: 2.5rem;
+    right: 3rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    opacity: 0.35;
+  }
+
+  .hero-scroll span {
+    font-size: 0.6rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    writing-mode: vertical-rl;
+    color: var(--off-white);
+  }
+
+  .scroll-line {
+    width: 1px;
+    height: 48px;
+    background: linear-gradient(to bottom, var(--off-white), transparent);
+    animation: scrollpulse 2s ease-in-out infinite;
+  }
+
+  @keyframes scrollpulse {
+    0%, 100% { opacity: 0.3; transform: scaleY(1); }
+    50% { opacity: 0.9; transform: scaleY(1.1); }
+  }
+
+  /* DIVIDER */
+  .divider {
+    border: none;
+    border-top: 1px solid var(--border);
+    margin: 0 3rem;
+  }
+
+  /* SECTION */
+  section { padding: 7rem 3rem; }
+
+  .label {
+    font-size: 0.65rem;
+    font-weight: 400;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--green-accent);
+    margin-bottom: 3rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .label::after {
+    content: '';
+    flex: 0 0 40px;
+    height: 1px;
+    background: var(--green-accent);
+    opacity: 0.5;
+  }
+
+  /* THESIS */
+  .thesis-text {
+    font-family: 'Fraunces', serif;
+    font-size: clamp(1.6rem, 3vw, 2.6rem);
+    font-weight: 300;
+    line-height: 1.45;
+    color: var(--off-white);
+    max-width: 900px;
+  }
+
+  .thesis-text em {
+    font-style: italic;
+    color: var(--green-accent);
+  }
+
+  /* PORTFOLIO */
+  .portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+    margin-top: 3rem;
+  }
+
+  .product-card {
+    background: var(--bg);
+    padding: 2.5rem;
+    position: relative;
+    transition: background 0.3s ease;
+  }
+
+  .product-card:hover { background: var(--surface2); }
+
+  .product-tag {
+    font-size: 0.6rem;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--green-accent);
+    margin-bottom: 1.2rem;
+    display: block;
+  }
+
+  .product-name {
+    font-family: 'Fraunces', serif;
+    font-size: 1.8rem;
+    font-weight: 300;
+    color: var(--off-white);
+    margin-bottom: 0.75rem;
+    letter-spacing: -0.01em;
+  }
+
+  .product-desc {
+    font-size: 0.88rem;
+    color: var(--muted);
+    line-height: 1.7;
+    margin-bottom: 1.5rem;
+  }
+
+  .product-status {
+    font-size: 0.65rem;
+    font-weight: 400;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    color: var(--muted);
+  }
+
+  .status-dot {
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: var(--green-accent);
+    flex-shrink: 0;
+  }
+
+  .status-dot.phase { background: #E8A020; }
+
+  .product-badge {
+    position: absolute;
+    top: 2.5rem;
+    right: 2.5rem;
+    font-size: 0.55rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(245,242,237,0.18);
+    font-weight: 400;
+  }
+
+  .raise-block {
+    border-top: 1px solid var(--border);
+    padding-top: 1.2rem;
+    margin-top: 1.4rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+
+  .raise-label {
+    font-size: 0.58rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #E8A020;
+    display: block;
+    margin-bottom: 4px;
+  }
+
+  .raise-amount {
+    font-size: 0.92rem;
+    font-weight: 400;
+    color: var(--off-white);
+  }
+
+  .raise-sub {
+    font-size: 0.72rem;
+    color: var(--muted);
+    margin-top: 2px;
+  }
+
+  .raise-pill {
+    font-size: 0.58rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    background: rgba(232,160,32,0.1);
+    color: #E8A020;
+    border: 1px solid rgba(232,160,32,0.25);
+    padding: 4px 10px;
+    border-radius: 2px;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  /* EDGE */
+  .edge-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 3rem;
+    margin-top: 3rem;
+  }
+
+  .edge-num {
+    font-family: 'Fraunces', serif;
+    font-size: 3rem;
+    font-weight: 300;
+    color: var(--green);
+    line-height: 1;
+    margin-bottom: 1rem;
+  }
+
+  .edge-title {
+    font-size: 0.95rem;
+    font-weight: 400;
+    color: var(--off-white);
+    margin-bottom: 0.6rem;
+  }
+
+  .edge-desc {
+    font-size: 0.82rem;
+    color: var(--muted);
+    line-height: 1.75;
+  }
+
+  /* CTA BLOCK */
+  .cta-section {
+    background: var(--surface);
+    margin: 0 3rem;
+    border: 1px solid var(--border);
+    padding: 6rem 4rem;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    gap: 4rem;
+  }
+
+  .cta-headline {
+    font-family: 'Fraunces', serif;
+    font-size: clamp(1.8rem, 3.5vw, 3rem);
+    font-weight: 300;
+    color: var(--off-white);
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+  }
+
+  .cta-headline em {
+    font-style: italic;
+    color: var(--green-accent);
+  }
+
+  .cta-btn {
+    display: inline-block;
+    background: var(--green);
+    color: var(--off-white);
+    text-decoration: none;
+    padding: 1.1rem 2.8rem;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 400;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    border-radius: 2px;
+    white-space: nowrap;
+    transition: background 0.25s ease;
+  }
+
+  .cta-btn:hover { background: var(--green-light); }
+
+  /* FOOTER */
+  footer {
+    padding: 3rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid var(--border);
+    margin-top: 5rem;
+  }
+
+  .footer-logo {
+    font-family: 'Fraunces', serif;
+    font-size: 0.95rem;
+    font-weight: 300;
+    color: var(--muted);
+  }
+
+  .footer-copy {
+    font-size: 0.72rem;
+    color: var(--muted);
+    letter-spacing: 0.05em;
+  }
+
+  /* SCROLL ANIMATIONS */
+  .fade-up {
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 900px) {
+    .edge-grid { grid-template-columns: 1fr 1fr; }
+  }
+
+  @media (max-width: 768px) {
+    nav { padding: 1.2rem 1.5rem; }
+    .hero { padding: 0 1.5rem 5rem; }
+    section { padding: 5rem 1.5rem; }
+    .divider { margin: 0 1.5rem; }
+    .edge-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+    .cta-section {
+      margin: 0 1.5rem;
+      padding: 3.5rem 2rem;
+      grid-template-columns: 1fr;
+      gap: 2.5rem;
+    }
+    footer { padding: 2rem 1.5rem; flex-direction: column; gap: 1rem; text-align: center; }
+    .hero-scroll { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">
+    Kirimon
+    <span>Impact Advisory</span>
+  </a>
+  <a href="/cdn-cgi/l/email-protection#bcd4d9d0d0d3fcd7d5ced5d1d3d292dfd3d1" class="nav-cta">Get in touch</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <p class="hero-eyebrow">Nairobi, Kenya &nbsp;·&nbsp; Est. 2024</p>
+  <h1>Building Africa's<br><em>missing</em><br>digital layer.</h1>
+  <p class="hero-sub">
+    We design and deploy <strong>M-Pesa native platforms</strong> for Kenya's real economy — fintech, labour markets, education, and impact finance. Built for the continent. Built to last.
+  </p>
+  <div class="hero-scroll">
+    <div class="scroll-line"></div>
+    <span>Scroll</span>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- THESIS -->
+<section class="fade-up">
+  <p class="label">Our thesis</p>
+  <p class="thesis-text">
+    Africa's most consequential markets — work, savings, learning, credit — are underserved not for lack of demand, but for lack of infrastructure <em>built for them</em>. We build that infrastructure.
+  </p>
+</section>
+
+<hr class="divider">
+
+<!-- PORTFOLIO -->
+<section class="fade-up">
+  <p class="label">Portfolio</p>
+  <div class="portfolio-grid">
+
+    <div class="product-card">
+      <span class="product-badge">M-Pesa Native</span>
+      <span class="product-tag">Labour Markets</span>
+      <p class="product-name">Klokd</p>
+      <p class="product-desc">Kenya's casual labour marketplace. Verified workers matched to short-notice shifts by proximity. Employers post in 2 minutes. M-Pesa pays on shift completion. Workers build a portable reputation with every shift.</p>
+      <span class="product-status"><span class="status-dot phase"></span>Phase 0 &nbsp;·&nbsp; Nairobi</span>
+      <div class="raise-block">
+        <div>
+          <span class="raise-label">Currently raising</span>
+          <p class="raise-amount">KES 18M</p>
+          <p class="raise-sub">USD 140,000 &nbsp;·&nbsp; Pre-Seed SAFE</p>
+        </div>
+        <span class="raise-pill">Open</span>
+      </div>
+    </div>
+
+    <div class="product-card">
+      <span class="product-badge">M-Pesa Native</span>
+      <span class="product-tag">Fintech &nbsp;·&nbsp; Microfinance</span>
+      <p class="product-name">Jitume</p>
+      <p class="product-desc">Save-first microfinance for Kenya's urban youth. Built on Chama savings culture — groups save together, credit follows behaviour. Pre-seed raise underway.</p>
+      <span class="product-status"><span class="status-dot"></span>MVP Build &nbsp;·&nbsp; Active</span>
+      <div class="raise-block">
+        <div>
+          <span class="raise-label">Currently raising</span>
+          <p class="raise-amount">KES 15M</p>
+          <p class="raise-sub">USD 120,000 &nbsp;·&nbsp; Pre-Seed SAFE</p>
+        </div>
+        <span class="raise-pill">Open</span>
+      </div>
+    </div>
+
+    <div class="product-card">
+      <span class="product-badge">M-Pesa Native</span>
+      <span class="product-tag">EdTech &nbsp;·&nbsp; CBC</span>
+      <p class="product-name">Paa Elimu</p>
+      <p class="product-desc">CBC exam prep for Kenyan students. AI tutor Mwalimu guides learners in Swahili and English across KPSEA, KJSEA, and Senior SSA tracks.</p>
+      <span class="product-status"><span class="status-dot"></span>Staging &nbsp;·&nbsp; Sprint 1</span>
+      <div class="raise-block">
+        <div>
+          <span class="raise-label">Currently raising</span>
+          <p class="raise-amount">KES 45M</p>
+          <p class="raise-sub">USD 350,000 &nbsp;·&nbsp; Pre-Seed SAFE</p>
+        </div>
+        <span class="raise-pill">Open</span>
+      </div>
+    </div>
+
+    <div class="product-card">
+      <span class="product-badge">API Platform</span>
+      <span class="product-tag">Intelligence Layer</span>
+      <p class="product-name">Bongo API</p>
+      <p class="product-desc">Headless semantic RAG API powering the Paa Elimu content engine — and future educational institutions. Curriculum-aligned answers at scale.</p>
+      <span class="product-status"><span class="status-dot"></span>Sprint 1 Complete</span>
+      <div class="raise-block">
+        <div>
+          <span class="raise-label">Currently raising</span>
+          <p class="raise-amount">KES 32M</p>
+          <p class="raise-sub">USD 250,000 &nbsp;·&nbsp; Pre-Seed SAFE</p>
+        </div>
+        <span class="raise-pill">Open</span>
+      </div>
+    </div>
+
+    <div class="product-card">
+      <span class="product-badge">Advisory</span>
+      <span class="product-tag">Impact Finance</span>
+      <p class="product-name">Analytics &amp; Advisory</p>
+      <p class="product-desc">Platforms for MFIs, impact investors, and development finance institutions — risk management, portfolio analytics, and budget governance tools.</p>
+      <span class="product-status"><span class="status-dot"></span>Client Deployed</span>
+    </div>
+
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- WHY KIRIMON -->
+<section class="fade-up">
+  <p class="label">Why Kirimon</p>
+  <div class="edge-grid">
+    <div class="edge-item">
+      <p class="edge-num">01</p>
+      <p class="edge-title">M-Pesa Native by design</p>
+      <p class="edge-desc">Every platform we build treats M-Pesa as the primary financial rail — not a bolt-on. Payments, disbursements, payroll, and credit flow through infrastructure Kenya already trusts.</p>
+    </div>
+    <div class="edge-item">
+      <p class="edge-num">02</p>
+      <p class="edge-title">Context-first engineering</p>
+      <p class="edge-desc">We build for Nairobi before Silicon Valley. That means bilingual interfaces, regulatory alignment with Kenya DPA and CBK, and products shaped by how people actually live and work.</p>
+    </div>
+    <div class="edge-item">
+      <p class="edge-num">03</p>
+      <p class="edge-title">Portfolio depth, not breadth</p>
+      <p class="edge-desc">Our platforms share infrastructure, data intelligence, and distribution — compounding value across the portfolio. Each product strengthens the whole.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<div class="cta-section fade-up">
+  <p class="cta-headline">Partnering with<br>funds who back<br><em>real infrastructure.</em></p>
+  <a href="/cdn-cgi/l/email-protection#4028252c2c2f002b2932292d2f2e6e232f2d" class="cta-btn">Start a conversation</a>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <p class="footer-logo">Kirimon Impact Advisory</p>
+  <p class="footer-copy">Nairobi, Kenya &nbsp;·&nbsp; <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="59313c3535361932302b30343637773a3634">[email&#160;protected]</a> &nbsp;·&nbsp; &copy; 2026</p>
+</footer>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+  const observer = new IntersectionOb
