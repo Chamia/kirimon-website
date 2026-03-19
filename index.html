@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Kirimon Impact Advisory</title>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300;1,9..144,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -127,6 +127,19 @@
   }
 
   .hero h1 em {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    color: var(--green-accent);
+  }
+
+  .thesis-text em {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    color: var(--green-accent);
+  }
+
+  .cta-headline em {
+    font-family: 'Fraunces', serif;
     font-style: italic;
     color: var(--green-accent);
   }
@@ -215,11 +228,6 @@
     line-height: 1.45;
     color: var(--off-white);
     max-width: 900px;
-  }
-
-  .thesis-text em {
-    font-style: italic;
-    color: var(--green-accent);
   }
 
   /* PORTFOLIO */
@@ -515,7 +523,7 @@
       <span class="product-badge">M-Pesa Native</span>
       <span class="product-tag">Labour Markets</span>
       <p class="product-name">Klokd</p>
-      <p class="product-desc">Kenya's casual labour marketplace. Verified workers matched to short-notice shifts by proximity. Employers post in 2 minutes. M-Pesa pays on shift completion. Workers build a portable reputation with every shift.</p>
+      <p class="product-desc">Kenya has millions of casual workers and thousands of businesses that need them — today, not next week. The matching infrastructure doesn't exist. We're building it, M-Pesa Native, starting in Nairobi.</p>
       <span class="product-status"><span class="status-dot phase"></span>Phase 0 &nbsp;·&nbsp; Nairobi</span>
       <div class="raise-block">
         <div>
@@ -531,7 +539,7 @@
       <span class="product-badge">M-Pesa Native</span>
       <span class="product-tag">Fintech &nbsp;·&nbsp; Microfinance</span>
       <p class="product-name">Jitume</p>
-      <p class="product-desc">Save-first microfinance for Kenya's urban youth. Built on Chama savings culture — groups save together, credit follows behaviour. Pre-seed raise underway.</p>
+      <p class="product-desc">Millions of Kenyans save together in Chamas — disciplined, trust-based, and entirely invisible to formal credit systems. We're changing that with a platform that turns collective savings behaviour into a pathway to credit.</p>
       <span class="product-status"><span class="status-dot"></span>MVP Build &nbsp;·&nbsp; Active</span>
       <div class="raise-block">
         <div>
@@ -547,7 +555,7 @@
       <span class="product-badge">M-Pesa Native</span>
       <span class="product-tag">EdTech &nbsp;·&nbsp; CBC</span>
       <p class="product-name">Paa Elimu</p>
-      <p class="product-desc">CBC exam prep for Kenyan students. AI tutor Mwalimu guides learners in Swahili and English across KPSEA, KJSEA, and Senior SSA tracks.</p>
+      <p class="product-desc">Kenya's CBC curriculum is new, complex, and exam-critical — yet the learning tools built for it are almost nonexistent. We're changing that with an AI-powered prep experience designed for how Kenyan students actually learn.</p>
       <span class="product-status"><span class="status-dot"></span>Staging &nbsp;·&nbsp; Sprint 1</span>
       <div class="raise-block">
         <div>
@@ -560,10 +568,26 @@
     </div>
 
     <div class="product-card">
+      <span class="product-badge">Paa Elimu Limited</span>
+      <span class="product-tag">EdTech &nbsp;·&nbsp; KCSE</span>
+      <p class="product-name">Ace Mtihani</p>
+      <p class="product-desc">Kenya's 37-year-old university entrance exam sits its final two cohorts in 2026 and 2027. We are building the premium AI-powered prep platform exclusively for these last students — and transitioning their families directly into Paa Elimu's CBC platform when KCSE concludes. A deliberate two-act entry into Kenyan EdTech.</p>
+      <span class="product-status"><span class="status-dot phase"></span>Beta &nbsp;·&nbsp; April 2026</span>
+      <div class="raise-block">
+        <div>
+          <span class="raise-label">Currently raising</span>
+          <p class="raise-amount">KES 38M</p>
+          <p class="raise-sub">USD 295,000 &nbsp;·&nbsp; Pre-Seed SAFE</p>
+        </div>
+        <span class="raise-pill">Open</span>
+      </div>
+    </div>
+
+    <div class="product-card">
       <span class="product-badge">API Platform</span>
       <span class="product-tag">Intelligence Layer</span>
       <p class="product-name">Bongo API</p>
-      <p class="product-desc">Headless semantic RAG API powering the Paa Elimu content engine — and future educational institutions. Curriculum-aligned answers at scale.</p>
+      <p class="product-desc">Educational content in Kenya is fragmented, unstructured, and hard to query. We're building the semantic infrastructure that turns it into cited, curriculum-aligned intelligence — available to any institution via API.</p>
       <span class="product-status"><span class="status-dot"></span>Sprint 1 Complete</span>
       <div class="raise-block">
         <div>
@@ -619,8 +643,7 @@
 <!-- FOOTER -->
 <footer>
   <p class="footer-logo">Kirimon Impact Advisory</p>
-  <p class="footer-copy">Nairobi, Kenya &nbsp;·&nbsp; <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="59313c3535361932302b30343637773a3634">[email&#160;protected]</a> &nbsp;·&nbsp; &copy; 2026</p>
+  <p class="footer-copy">Nairobi, Kenya &nbsp;·&nbsp; hello@kirimon.co.ke &nbsp;·&nbsp; &copy; 2026</p>
 </footer>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-  const observer = new IntersectionObkirimon v1.0
+<script>
